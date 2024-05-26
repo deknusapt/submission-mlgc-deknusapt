@@ -2,12 +2,12 @@ const { Firestore } = require('@google-cloud/firestore');
 const db = new Firestore();
 
 async function storeData(id, data) {
-  const predictCollection = db.collection('prediction');
+  const predictCollection = db.collection('predictions');
   return predictCollection.doc(id).set(data);
 }
 
 async function getAllData(){
-  const saveData = await db.collection('prediction').get()
+  const saveData = await db.collection('predictions').get()
   const allData = []
 
   for (const doc of saveData.docs) {
